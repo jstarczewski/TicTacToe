@@ -1,6 +1,6 @@
 package com.jstarczewski;
 
-public abstract class Figure {
+public class Figure {
 
     private int width;
     private int height;
