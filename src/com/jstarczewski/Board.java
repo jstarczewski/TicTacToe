@@ -9,8 +9,8 @@ public class Board implements Printable {
     Board() {
         this.stack = new Stack<Configuration>();
         this.moveMadeTime = 0;
-        configuration = new Configuration();
-        stack.push(configuration);
+        this.configuration = new Configuration();
+        stack.push(this.configuration);
     }
 
     public boolean makeMove(Player player, int width, int height) {
@@ -18,7 +18,7 @@ public class Board implements Printable {
         Boolean isMoveMade = configuration.fill(player.createFigure(width, height, moveMadeTime), width, height);
         if (isMoveMade) {
             stack.push(configuration);
-            this.configuration = new Configuration(this.configuration);
+            this.configuration = this.configuration.rewrite();
         }
         return isMoveMade;
     }

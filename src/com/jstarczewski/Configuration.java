@@ -6,29 +6,35 @@ public class Configuration {
 
     Configuration() {
         this.configuration = new Figure[3][3];
+        fillAtStart();
     }
 
-    Configuration(Configuration configuration) {
-        rewrite(configuration);
+    private void fillAtStart() {
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++) {
+                this.configuration[i][j] = new Figure(i, j, 0);
+            }
     }
 
     public boolean fill(Figure figure, int width, int height) {
-        if (isEmpty(width, height)) {
+        if (isFilledWithDefaultFigure(width, height)) {
             configuration[width][height] = figure;
             return true;
         } else
             return false;
     }
 
-    private boolean isEmpty(int width, int height) {
-        return (configuration[width][height]) == null;
+    private boolean isFilledWithDefaultFigure(int width, int height) {
+        return (configuration[width][height]).isDefaultFigure();
     }
 
-    public void rewrite(Configuration configuration) {
+    public Configuration rewrite() {
+        Configuration configuration = new Configuration();
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++) {
-                this.configuration[i][j] = configuration.getConfiguration()[i][j];
+                configuration.getConfiguration()[i][j] = this.configuration[i][j];
             }
+        return configuration;
     }
 
     public Figure[][] getConfiguration() {

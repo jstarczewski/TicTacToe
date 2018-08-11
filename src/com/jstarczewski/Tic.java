@@ -2,8 +2,12 @@ package com.jstarczewski;
 
 public class Tic extends Figure {
 
+
+    private Player player;
+
     public Tic(int width, int height, int moveMadeTime, Player player) {
-        super(width, height, moveMadeTime, player);
+        super(width, height, moveMadeTime);
+        this.player = player;
     }
 
     @Override
@@ -21,9 +25,8 @@ public class Tic extends Figure {
         return super.getHeight();
     }
 
-    @Override
     public Player getPlayer() {
-        return super.getPlayer();
+        return player;
     }
 
     @Override
@@ -34,6 +37,11 @@ public class Tic extends Figure {
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
+    }
+
+    @Override
+    public boolean isDefaultFigure() {
+        return false;
     }
 
     public String getName() {

@@ -2,8 +2,11 @@ package com.jstarczewski;
 
 public class Tac extends Figure {
 
+    private Player player;
+
     public Tac(int width, int height, int moveMadeTime, Player player) {
-        super(width, height, moveMadeTime, player);
+        super(width, height, moveMadeTime);
+        this.player = player;
     }
 
     @Override
@@ -21,9 +24,13 @@ public class Tac extends Figure {
         return super.getHeight();
     }
 
-    @Override
     public Player getPlayer() {
-        return super.getPlayer();
+        return player;
+    }
+
+    @Override
+    public boolean isDefaultFigure() {
+        return false;
     }
 
     @Override
