@@ -10,14 +10,15 @@ public class Stack<Item> implements Iterable<Item> {
 
     public void push(Item item) {
         if (length == items.length)
-            resize(items.length*2);
+            resize(items.length * 2);
         items[length++] = item;
     }
+
     public Item pop() {
         Item item = items[--length];
         items[length] = null;
-        if (length > 0 && length == items.length/4)
-            resize(items.length/2);
+        if (length > 0 && length == items.length / 4)
+            resize(items.length / 2);
         return item;
     }
 
@@ -33,6 +34,7 @@ public class Stack<Item> implements Iterable<Item> {
     public Iterator<Item> iterator() {
         return new ReverseStackIterator();
     }
+
     private class ReverseStackIterator implements Iterator<Item> {
 
         private int i = length;
@@ -53,5 +55,13 @@ public class Stack<Item> implements Iterable<Item> {
         }
     }
 
+    @Override
+    public String toString() {
+        String base = " ";
+        for (int i = 0; i < length; i++) {
+            base += " " + items[i].toString();
+        }
+        return base;
+    }
 
 }

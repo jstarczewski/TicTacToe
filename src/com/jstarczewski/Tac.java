@@ -39,8 +39,7 @@ public class Tac extends Figure {
     }
 
     public String getName() {
-        String NAME = "TAC";
-        return NAME;
+        return "| TAC |";
     }
 
     @Override
@@ -50,7 +49,6 @@ public class Tac extends Figure {
 
     @Override
     public String toString() {
-        String SIGN = "O";
-        return SIGN;
+        return "O";
     }
 }

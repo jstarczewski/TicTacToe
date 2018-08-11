@@ -25,8 +25,9 @@ public class Figure {
     }
 
     public String getName() {
-        return "Name";
+        return "|     |";
     }
+
     public boolean isDefaultFigure() {
         return true;
     }

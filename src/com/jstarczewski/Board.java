@@ -10,7 +10,6 @@ public class Board implements Printable {
         this.stack = new Stack<Configuration>();
         this.moveMadeTime = 0;
         this.configuration = new Configuration();
-        stack.push(this.configuration);
     }
 
     public boolean makeMove(Player player, int width, int height) {
@@ -35,7 +34,12 @@ public class Board implements Printable {
     }
 
     @Override
-    public String printBoard() {
-       return configuration.toString();
+    public String printGameMoves() {
+        return stack.toString();
+    }
+
+    @Override
+    public void printBoard() {
+        System.out.println(configuration.toString());
     }
 }

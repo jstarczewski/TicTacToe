@@ -43,12 +43,13 @@ public class Configuration {
 
     @Override
     public String toString() {
-        String base = " ";
-        for (int i = 0; i < 3; i++)
+        String base = "";
+        for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (configuration[i][j] != null)
-                    base += configuration[i][j].getName();
+                base += configuration[i][j].getName();
             }
+            base += '\n';
+        }
         return base;
     }
 }

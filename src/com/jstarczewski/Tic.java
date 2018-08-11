@@ -45,13 +45,11 @@ public class Tic extends Figure {
     }
 
     public String getName() {
-        String NAME = "TIC";
-        return NAME;
+        return "| TAC |";
     }
 
     @Override
     public String toString() {
-        String SIGN = "X";
-        return SIGN;
+        return "X";
     }
 }
