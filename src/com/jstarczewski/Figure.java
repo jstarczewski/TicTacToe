@@ -29,6 +29,9 @@ public class Figure {
     public Player getPlayer() {
         return player;
     }
+    public String getName() {
+        return "Name";
+    }
 
 
 }

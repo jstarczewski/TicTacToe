@@ -2,11 +2,12 @@ package com.jstarczewski;
 
 public class Configuration {
 
-    Figure[][] configuration;
+    private Figure[][] configuration;
 
     Configuration() {
         this.configuration = new Figure[3][3];
     }
+
     Configuration(Configuration configuration) {
         rewrite(configuration);
     }
@@ -15,22 +16,33 @@ public class Configuration {
         if (isEmpty(width, height)) {
             configuration[width][height] = figure;
             return true;
-        }
-        else
+        } else
             return false;
     }
 
     private boolean isEmpty(int width, int height) {
         return (configuration[width][height]) == null;
     }
+
     public void rewrite(Configuration configuration) {
-        for (int i = 0; i<3; i++)
-            for (int j = 0; j<3; j++) {
-             this.configuration[i][j]=configuration.getConfiguration()[i][j];
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++) {
+                this.configuration[i][j] = configuration.getConfiguration()[i][j];
             }
     }
 
     public Figure[][] getConfiguration() {
         return configuration;
+    }
+
+    @Override
+    public String toString() {
+        String base = " ";
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++) {
+                if (configuration[i][j] != null)
+                    base += configuration[i][j].getName();
+            }
+        return base;
     }
 }
