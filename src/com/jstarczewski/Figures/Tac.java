@@ -1,4 +1,6 @@
-package com.jstarczewski;
+package com.jstarczewski.Figures;
+
+import com.jstarczewski.Players.Player;
 
 public class Tac extends Figure {
 

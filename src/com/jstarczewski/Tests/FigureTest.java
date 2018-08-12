@@ -1,6 +1,6 @@
 package com.jstarczewski.Tests;
 
-import com.jstarczewski.Figure;
+import com.jstarczewski.Figures.Figure;
 
 import static org.junit.Assert.*;
 

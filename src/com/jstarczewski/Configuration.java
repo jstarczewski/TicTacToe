@@ -1,10 +1,12 @@
 package com.jstarczewski;
 
+import com.jstarczewski.Figures.Figure;
+
 public class Configuration {
 
     private Figure[][] configuration;
 
-    Configuration() {
+    public Configuration() {
         this.configuration = new Figure[3][3];
         fillAtStart();
     }
@@ -16,10 +18,10 @@ public class Configuration {
             }
     }
 
-    public boolean fill(Figure figure, int width, int height) {
+    public boolean fill(Figure figure) {
         try {
-            if (isFilledWithDefaultFigure(width, height)) {
-                configuration[width][height] = figure;
+            if (isFilledWithDefaultFigure(figure.getWidth(), figure.getHeight())) {
+                configuration[figure.getWidth()][figure.getHeight()] = figure;
                 return true;
             } else
                 return false;

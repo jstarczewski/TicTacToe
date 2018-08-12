@@ -1,4 +1,4 @@
-package com.jstarczewski;
+package com.jstarczewski.Figures;
 
 public class Figure {
 

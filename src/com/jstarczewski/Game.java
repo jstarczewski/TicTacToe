@@ -1,5 +1,7 @@
 package com.jstarczewski;
 
+import com.jstarczewski.Players.Player;
+
 public class Game {
 
     Game() {

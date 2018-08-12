@@ -1,22 +1,25 @@
 package com.jstarczewski;
 
+import com.jstarczewski.Players.Player;
+
 public class Board implements Printable {
 
     private Configuration configuration;
+
     private int moveMadeTime;
     private Stack<Configuration> stack;
 
-    Board() {
+    public Board() {
         this.stack = new Stack<Configuration>();
         this.moveMadeTime = 0;
         this.configuration = new Configuration();
     }
 
     public boolean makeMove(Player player, int width, int height) {
-        moveMadeTime++;
-        Boolean isMoveMade = configuration.fill(player.createFigure(width, height, moveMadeTime), width, height);
+        Boolean isMoveMade = configuration.fill(player.createFigure(width, height, moveMadeTime));
         if (isMoveMade) {
             stack.push(configuration);
+            moveMadeTime++;
             this.configuration = this.configuration.rewrite();
         }
         return isMoveMade;
@@ -37,6 +40,12 @@ public class Board implements Printable {
     public String printGameMoves() {
         return stack.toString();
     }
+
+    public int getMoveMadeTime() {
+        return moveMadeTime;
+    }
+
+
 
     @Override
     public void printBoard() {

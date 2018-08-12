@@ -1,7 +1,7 @@
 package com.jstarczewski.Tests;
 
-import com.jstarczewski.Player;
-import com.jstarczewski.Tac;
+import com.jstarczewski.Players.Player;
+import com.jstarczewski.Figures.Tac;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

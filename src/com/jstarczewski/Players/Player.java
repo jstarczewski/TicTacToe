@@ -1,4 +1,7 @@
-package com.jstarczewski;
+package com.jstarczewski.Players;
+
+import com.jstarczewski.Figures.Figure;
+import com.jstarczewski.Figures.Tac;
 
 public class Player {
 
