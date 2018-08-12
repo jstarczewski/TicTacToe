@@ -23,8 +23,7 @@ public class Configuration {
                 return true;
             } else
                 return false;
-        }
-        catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             return false;
         }
     }
@@ -35,9 +34,14 @@ public class Configuration {
 
     public Configuration rewrite() {
         Configuration configuration = new Configuration();
+
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++) {
-                configuration.getConfiguration()[i][j] = this.configuration[i][j];
+                try {
+                    configuration.getConfiguration()[i][j] = this.configuration[i][j];
+                } catch (NullPointerException npe) {
+                    configuration.getConfiguration()[i][j] = new Figure(i, j, 0);
+                }
             }
         return configuration;
     }

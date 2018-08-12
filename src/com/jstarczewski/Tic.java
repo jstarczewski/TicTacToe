@@ -45,7 +45,7 @@ public class Tic extends Figure {
     }
 
     public String getName() {
-        return "| TAC |";
+        return "| TIC |";
     }
 
     @Override

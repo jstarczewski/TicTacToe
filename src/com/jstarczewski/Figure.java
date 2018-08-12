@@ -7,8 +7,8 @@ public class Figure {
     private int moveMadeTime;
 
     public Figure(int width, int height, int moveMadeTime) {
-        this.width = width;
-        this.height = height;
+            this.width = width;
+            this.height = height;
         this.moveMadeTime = moveMadeTime;
     }
 
