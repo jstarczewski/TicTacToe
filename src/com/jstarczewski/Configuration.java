@@ -17,11 +17,16 @@ public class Configuration {
     }
 
     public boolean fill(Figure figure, int width, int height) {
-        if (isFilledWithDefaultFigure(width, height)) {
-            configuration[width][height] = figure;
-            return true;
-        } else
+        try {
+            if (isFilledWithDefaultFigure(width, height)) {
+                configuration[width][height] = figure;
+                return true;
+            } else
+                return false;
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
             return false;
+        }
     }
 
     private boolean isFilledWithDefaultFigure(int width, int height) {

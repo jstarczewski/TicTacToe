@@ -8,6 +8,7 @@ public class Game {
         board.makeMove(player, 1, 1);
         board.makeMove(player, 2, 2);
         board.makeMove(player, 0, 0);
+        board.makeMove(player, 4,4);
         board.printBoard();
 
     }

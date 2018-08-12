@@ -1,4 +1,6 @@
-package com.jstarczewski;
+package com.jstarczewski.Tests;
+
+import com.jstarczewski.Figure;
 
 import static org.junit.Assert.*;
 
@@ -18,17 +20,21 @@ public class FigureTest {
 
     @org.junit.Test
     public void getWidth() {
+        assertEquals(figure.getWidth(), 3,0);
     }
 
     @org.junit.Test
     public void getHeight() {
+        assertEquals(figure.getHeight(), 3,0);
     }
 
     @org.junit.Test
     public void getName() {
+        assertEquals(figure.getName(), "|     |");
     }
 
     @org.junit.Test
     public void isDefaultFigure() {
+        assertTrue(figure.isDefaultFigure());
     }
 }
