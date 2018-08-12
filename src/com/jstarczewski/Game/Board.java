@@ -1,4 +1,4 @@
-package com.jstarczewski;
+package com.jstarczewski.Game;
 
 import com.jstarczewski.Players.Player;
 
@@ -16,13 +16,17 @@ public class Board implements Printable {
     }
 
     public boolean makeMove(Player player, int width, int height) {
-        Boolean isMoveMade = configuration.fill(player.createFigure(width, height, moveMadeTime));
-        if (isMoveMade) {
-            stack.push(configuration);
-            moveMadeTime++;
-            this.configuration = this.configuration.rewrite();
+        try {
+            Boolean isMoveMade = configuration.fill(player.createFigure(width, height, moveMadeTime));
+            if (isMoveMade) {
+                stack.push(configuration);
+                moveMadeTime++;
+                this.configuration = this.configuration.rewrite();
+            }
+            return isMoveMade;
+        } catch (NullPointerException n) {
+            return false;
         }
-        return isMoveMade;
     }
 
 
@@ -44,7 +48,6 @@ public class Board implements Printable {
     public int getMoveMadeTime() {
         return moveMadeTime;
     }
-
 
 
     @Override

@@ -1,4 +1,4 @@
-package com.jstarczewski;
+package com.jstarczewski.Game;
 
 import com.jstarczewski.Figures.Figure;
 
