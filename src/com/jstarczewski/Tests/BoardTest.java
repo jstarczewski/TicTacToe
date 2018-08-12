@@ -1,6 +1,6 @@
 package com.jstarczewski.Tests;
 
-import com.jstarczewski.Game.Game.Board;
+import com.jstarczewski.Game.Board;
 import com.jstarczewski.Players.Player;
 import org.junit.Test;
 

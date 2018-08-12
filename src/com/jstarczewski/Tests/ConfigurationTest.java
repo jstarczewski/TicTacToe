@@ -1,9 +1,9 @@
 package com.jstarczewski.Tests;
 
-import com.jstarczewski.Game.Game.Configuration;
 import com.jstarczewski.Figures.Figure;
 import com.jstarczewski.Figures.Tac;
 import com.jstarczewski.Figures.Tic;
+import com.jstarczewski.Game.Configuration;
 import com.jstarczewski.Players.Player;
 import org.junit.Before;
 import org.junit.Test;

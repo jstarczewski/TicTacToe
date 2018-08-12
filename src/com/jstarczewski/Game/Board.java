@@ -1,5 +1,6 @@
 package com.jstarczewski.Game;
 
+import com.jstarczewski.Players.Participant;
 import com.jstarczewski.Players.Player;
 
 public class Board implements Printable {
@@ -15,9 +16,9 @@ public class Board implements Printable {
         this.configuration = new Configuration();
     }
 
-    public boolean makeMove(Player player, int width, int height) {
+    public boolean makeMove(Participant participant, int width, int height) {
         try {
-            Boolean isMoveMade = configuration.fill(player.createFigure(width, height, moveMadeTime));
+            Boolean isMoveMade = configuration.fill(participant.createFigure(width, height, moveMadeTime+1));
             if (isMoveMade) {
                 stack.push(configuration);
                 moveMadeTime++;

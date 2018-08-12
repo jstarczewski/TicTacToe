@@ -6,6 +6,7 @@ import com.jstarczewski.Figures.Figures;
 public abstract class Participant {
 
     private int moveIndex;
+    Figures figures;
 
     public boolean setTacAsFigure() {
         return true;
@@ -24,5 +25,8 @@ public abstract class Participant {
     }
     public int getMoveIndex() {
         return moveIndex;
+    }
+    public String getFiguresName() {
+        return figures.toString();
     }
 }

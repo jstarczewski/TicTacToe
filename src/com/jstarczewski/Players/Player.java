@@ -25,7 +25,7 @@ public class Player extends Participant {
     @Override
     public boolean setTicAsFigure() {
         if (!isFigureSet) {
-            figure = Figures.TAC;
+            figure = Figures.TIC;
             isFigureSet = true;
             return true;
         }
@@ -35,6 +35,7 @@ public class Player extends Participant {
     @Override
     public Figure createFigure(int width, int height, int moveMadeTime) {
         // how to handle null ???
+        System.out.println("Creating figure");
         if (isFigureSet) {
             if (figure.equals(Figures.TAC))
                 return new Tac(width, height, moveMadeTime, this);
@@ -52,5 +53,10 @@ public class Player extends Participant {
     @Override
     public int getMoveIndex() {
         return super.getMoveIndex();
+    }
+
+    @Override
+    public String getFiguresName() {
+        return figure.toString();
     }
 }

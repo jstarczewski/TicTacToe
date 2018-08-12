@@ -10,12 +10,10 @@ public class Game {
 
     private Participant participantOne;
     private Participant participantTwo;
-    private Scanner scanner;
     private Board board;
     private int moveIndex = 1;
 
-    Game(Games games, FiguresOrder figuresOrder, MoveOrder moveOrder) {
-        this.scanner = new Scanner(System.in);
+    public Game(Games games, FiguresOrder figuresOrder, MoveOrder moveOrder) {
         this.board = new Board();
         setGameParticipants(games);
         setFiguresOrder(figuresOrder);
@@ -26,29 +24,28 @@ public class Game {
         if (games.equals(Games.PLAYER_COMPUTER)) {
             this.participantOne = new Player();
             this.participantTwo = new Computer();
-        }
-        else {
+        } else {
             this.participantOne = new Player();
             this.participantTwo = new Player();
         }
     }
+
     private void setFiguresOrder(FiguresOrder figuresOrder) {
         if (figuresOrder.equals(FiguresOrder.TAC_TIC)) {
             participantOne.setTacAsFigure();
             participantTwo.setTicAsFigure();
-        }
-        else {
+        } else {
             participantOne.setTicAsFigure();
             participantTwo.setTacAsFigure();
         }
 
     }
+
     private void setMoveOrder(MoveOrder moveOrder) {
-        if (moveOrder.equals(MoveOrder.FIRST_SECOND)){
+        if (moveOrder.equals(MoveOrder.FIRST_SECOND)) {
             participantOne.setMoveIndex(2);
             participantTwo.setMoveIndex(1);
-        }
-        else {
+        } else {
             participantOne.setMoveIndex(1);
             participantTwo.setMoveIndex(2);
         }
@@ -57,17 +54,43 @@ public class Game {
     public void checkPlayersFiguresTypes() {
 
     }
+
     private void runGame() {
 
     }
+
     private void runGameFirstSecond() {
 
     }
+
     private void runGameSecondFirst() {
 
     }
+
     public boolean makeMove(int width, int height) {
-        if(participantTwo.get)
-        return board.makeMove()
+        if (participantOne.getMoveIndex() / 2 == 1) {
+            System.out.println("Making move bu");
+            switchMoveIndexes();
+            System.out.println(participantOne.getFiguresName());
+            return board.makeMove(participantOne, width, height);
+        }
+        else {
+            switchMoveIndexes();
+            System.out.println("Making move");
+            return board.makeMove(participantTwo, width, height);
+        }
+    }
+    private void switchMoveIndexes() {
+        if (participantOne.getMoveIndex()/2==1) {
+            participantOne.setMoveIndex(1);
+            participantTwo.setMoveIndex(2);
+        }
+        else {
+            participantOne.setMoveIndex(2);
+            participantTwo.setMoveIndex(1);
+        }
+    }
+    public void printBoard() {
+        board.printBoard();
     }
 }
