@@ -1,12 +1,54 @@
-------------
-|          |
-|  Figure  |-------
-|          |      |
-------------      |
-                  |
-    ----------------------------
-    |                          |
- --------
-|        |
-|        |
-|________|
+Abstract class Figure that defines basic functionality for 
+Tic X
+Tac O
+
+Figure 
+ - getName()
+ - toString()
+ - getMoveMadeTime
+ - getPlayer
+ Figure(int width, int height, int moveMadeTime, Player player)
+ - getWidth
+ - getHeight
+ - private int height
+ - private int width
+ - private int moveMadeTime
+-------------------------------------------------------------
+	Tic extends Figure
+	@Override
+	getMoveMadeTime
+	getWidth
+	getHEight
+	toString
+	equals
+	hashCode
+	getName
+	getPlayer
+-----------------------------------------------------------
+
+interface printable
+	printCurrentMoveData
+	printGameDate
+	printGameBoard
+-----------------------------------------------------------
+Board implements printable
+	// here we create Players, init board
+	// Game game = new Game(// type of game -> vs player vs computer)
+	game.setPrintAfterEveryMove
+	game.setPrintMoveData // etc etc
+	game.startGame()
+
+-----------------------------------------------------------		 	
+Board
+	Board() {
+		Figure[3][3];	
+	}
+	makeMove(Player player, int width, int height)
+	getConfiguration // will be placed on stack in Game returns Figure[][]
+
+------------------------------------------------------------
+Parametrize Stack (generics) to store game moves
+
+------------------------------------------------------------
+
+Abstract class Player is a base for Players type - computer player one, player two

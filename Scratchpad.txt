@@ -31,7 +31,7 @@ interface printable
 	printGameDate
 	printGameBoard
 -----------------------------------------------------------
-Game implements printable
+Board implements printable
 	// here we create Players, init board
 	// Game game = new Game(// type of game -> vs player vs computer)
 	game.setPrintAfterEveryMove
