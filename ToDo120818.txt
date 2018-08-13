@@ -1,0 +1,16 @@
+To Do
+-----------------------------------------------
+Test wheter it is possible to get all the data about:
+	- made move
+	- player who made move
+	- where
+	-print board
+Find better way to settle the game than multiple enums.....
+-----------------------------------------------
+Prototype the algorithm to check whtere there is a winner or not
+	class Winner(Configuration configuration) {
+		public boolean checkIfIsWinner();
+	}
+-----------------------------------------------
+Create unit tests for Game class
+
