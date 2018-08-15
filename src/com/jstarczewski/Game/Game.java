@@ -4,21 +4,25 @@ import com.jstarczewski.Players.Computer;
 import com.jstarczewski.Players.Participant;
 import com.jstarczewski.Players.Player;
 
+import java.util.Scanner;
+
 
 public class Game {
 
     private Participant participantOne;
     private Participant participantTwo;
     private Board board;
+    private Scanner scanner;
+    private boolean isGameParticipantsSet = false;
+    private boolean isFiguresOrderSet = false;
+    private boolean isMoveOrderSet = false;
 
-    public Game(Games games, FiguresOrder figuresOrder, MoveOrder moveOrder) {
+    public Game() {
         this.board = new Board();
-        setGameParticipants(games);
-        setFiguresOrder(figuresOrder);
-        setMoveOrder(moveOrder);
+        this.scanner = new Scanner(System.in);
     }
 
-    private void setGameParticipants(Games games) {
+    public void setGameParticipants(Games games) {
         if (games.equals(Games.PLAYER_COMPUTER)) {
             this.participantOne = new Player();
             this.participantTwo = new Computer();
@@ -26,9 +30,10 @@ public class Game {
             this.participantOne = new Player();
             this.participantTwo = new Player();
         }
+        isGameParticipantsSet = true;
     }
 
-    private void setFiguresOrder(FiguresOrder figuresOrder) {
+    public void setFiguresOrder(FiguresOrder figuresOrder) {
         if (figuresOrder.equals(FiguresOrder.TAC_TIC)) {
             participantOne.setTacAsFigure();
             participantTwo.setTicAsFigure();
@@ -36,10 +41,10 @@ public class Game {
             participantOne.setTicAsFigure();
             participantTwo.setTacAsFigure();
         }
-
+        isFiguresOrderSet = true;
     }
 
-    private void setMoveOrder(MoveOrder moveOrder) {
+    public void setMoveOrder(MoveOrder moveOrder) {
         if (moveOrder.equals(MoveOrder.FIRST_SECOND)) {
             participantOne.setMoveIndex(2);
             participantTwo.setMoveIndex(1);
@@ -47,40 +52,50 @@ public class Game {
             participantOne.setMoveIndex(1);
             participantTwo.setMoveIndex(2);
         }
+        isMoveOrderSet = true;
     }
 
-    public void checkPlayersFiguresTypes() {
+
+    public void runGame() {
+
+        if (isGameParticipantsSet && isFiguresOrderSet && isMoveOrderSet) {
+            int i = 0;
+            while (i <= 10 && !isWon()) {
+                int width = scanner.nextInt();
+                int height = scanner.nextInt();
+                if (makeMove(width, height)) {
+                    i++;
+                    printBoard();
+                }
+            }
+        }
 
     }
 
-    private void runGame() {
 
-    }
-
-    private void runGameFirstSecond() {
-
-    }
-
-    private void runGameSecondFirst() {
-
-    }
-
-    public boolean isWon() {
-        if (board.getMoveMadeTime() >= 4 && board.isWon()) {
+    private boolean isWon() {
+        if (board.getMoveMadeTime() >= 3 && board.isWon()) {
             System.out.println("Somebody won");
             return true;
         }
         return false;
     }
 
-    public boolean makeMove(int width, int height) {
+    private boolean makeMove(int width, int height) {
         if (participantOne.getMoveIndex() / 2 == 1) {
-            switchMoveIndexes();
-            return board.makeMove(participantOne, width, height);
+            if (board.makeMove(participantOne, width, height)) {
+                switchMoveIndexes();
+                return true;
+            }
+            return false;
         } else {
-            switchMoveIndexes();
-            return board.makeMove(participantTwo, width, height);
+            if (board.makeMove(participantTwo, width, height)) {
+                switchMoveIndexes();
+                return true;
+            }
+            return false;
         }
+
     }
 
     private void switchMoveIndexes() {
@@ -93,7 +108,7 @@ public class Game {
         }
     }
 
-    public void printBoard() {
+    private void printBoard() {
         board.printBoard();
     }
 }

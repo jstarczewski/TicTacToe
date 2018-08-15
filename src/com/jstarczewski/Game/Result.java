@@ -1,7 +1,6 @@
 package com.jstarczewski.Game;
 
 import com.jstarczewski.Figures.Figure;
-import com.jstarczewski.Players.Player;
 
 public abstract class Result {
 
