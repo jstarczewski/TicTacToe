@@ -8,6 +8,12 @@ public class Stack<Item> implements Iterable<Item> {
     private int length = 0;
     private boolean isEmpty;
 
+    public Item popWithoutPoping() {
+        if (items[length]!=null)
+            return items[length-1];
+        return null;
+    }
+
     public void push(Item item) {
         if (length == items.length)
             resize(items.length * 2);
