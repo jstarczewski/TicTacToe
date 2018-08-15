@@ -2,9 +2,9 @@ package com.jstarczewski.Game;
 
 import com.jstarczewski.Figures.Figure;
 
-public abstract class Result {
+public final class Result {
 
-    Board board;
+    private Result() {}
 
     public static boolean isWon(Configuration configuration) {
         Figure[][] figuresConfiguration = configuration.getConfiguration();
