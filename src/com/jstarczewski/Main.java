@@ -14,6 +14,8 @@ public class Main {
 
         Game game = new Game(Games.PLAYER_PLAYER, FiguresOrder.TIC_TAC, MoveOrder.FIRST_SECOND);
         Scanner scanner = new Scanner(System.in);
+
+
         int i = 0;
         while (i < 10) {
             i++;

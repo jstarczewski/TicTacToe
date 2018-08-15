@@ -18,7 +18,7 @@ public class Board implements Printable {
 
     public boolean makeMove(Participant participant, int width, int height) {
         try {
-            Boolean isMoveMade = configuration.fill(participant.createFigure(width, height, moveMadeTime+1));
+            Boolean isMoveMade = configuration.fill(participant.createFigure(width, height, moveMadeTime + 1));
             if (isMoveMade) {
                 stack.push(configuration);
                 moveMadeTime++;
@@ -26,6 +26,16 @@ public class Board implements Printable {
             }
             return isMoveMade;
         } catch (NullPointerException n) {
+            return false;
+        }
+    }
+
+    public boolean isWon() {
+        Configuration configuration = stack.pop();
+        if (Result.isWon(configuration))
+            return true;
+        else {
+            stack.push(configuration);
             return false;
         }
     }
@@ -50,6 +60,9 @@ public class Board implements Printable {
         return moveMadeTime;
     }
 
+    public Stack<Configuration> getStack() {
+        return stack;
+    }
 
     @Override
     public void printBoard() {

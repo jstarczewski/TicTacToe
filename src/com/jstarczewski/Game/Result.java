@@ -1,26 +1,28 @@
 package com.jstarczewski.Game;
 
 import com.jstarczewski.Figures.Figure;
+import com.jstarczewski.Players.Player;
 
-public class Result {
+public abstract class Result {
 
-    public static boolean isWon(Stack<Configuration> stack) {
-        Configuration configuration = stack.pop();
+    Board board;
+
+    public static boolean isWon(Configuration configuration) {
         Figure[][] figuresConfiguration = configuration.getConfiguration();
 
-
-        boolean isWon = true;
-// not goood solution, abonded
         for (int i = 0; i < 3; i++) {
-            isWon = true;
-            Figure figure = figuresConfiguration[i][0];
-            for (int j = 0; j < 3; j++) {
-                if (figuresConfiguration[i][j] != figure || figuresConfiguration[i][j].isDefaultFigure())
-                    isWon = false;
+            if ((i == 0) && (figuresConfiguration[i][i].equals(figuresConfiguration[i + 1][i + 1]) && (figuresConfiguration[i + 1][i + 1].equals(figuresConfiguration[i + 2][i + 2]))))
+                return true;
+            if ((i == 2) && (figuresConfiguration[i][i - 2].equals(figuresConfiguration[i - 1][i - 1]) && (figuresConfiguration[i - 1][i - 1].equals(figuresConfiguration[i - 2][i])))) {
+                return true;
+            }
+            if (i != 2 && i != 1 && (figuresConfiguration[0][i].equals(figuresConfiguration[1][i]) && figuresConfiguration[1][i].equals(figuresConfiguration[2][i]))) {
+                return true;
+            }
+            if (i != 2 && i != 1 && (figuresConfiguration[i][0].equals(figuresConfiguration[i][1]) && figuresConfiguration[i][1].equals(figuresConfiguration[i][2]))) {
+                return true;
             }
         }
-
-
         return false;
     }
 

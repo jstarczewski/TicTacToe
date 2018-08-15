@@ -68,6 +68,10 @@ public class Game {
     }
 
     public boolean makeMove(int width, int height) {
+        if (board.getMoveMadeTime()>=4 && board.isWon()) {
+            System.out.println("Somebody won");
+            return true;
+        }
         if (participantOne.getMoveIndex() / 2 == 1) {
             System.out.println("Making move bu");
             switchMoveIndexes();

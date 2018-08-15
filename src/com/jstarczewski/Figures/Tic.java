@@ -38,7 +38,8 @@ public class Tic extends Figure {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        return (obj instanceof Figure && ((Figure) obj).getName().equals(getName()));
+
     }
 
     @Override
