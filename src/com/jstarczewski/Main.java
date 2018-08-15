@@ -17,7 +17,7 @@ public class Main {
 
 
         int i = 0;
-        while (i < 10) {
+        while (i < 10 && !game.isWon()) {
             i++;
             int width = scanner.nextInt();
             int height = scanner.nextInt();

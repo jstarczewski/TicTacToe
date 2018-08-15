@@ -1,7 +1,6 @@
 package com.jstarczewski.Game;
 
 import com.jstarczewski.Players.Participant;
-import com.jstarczewski.Players.Player;
 
 public class Board implements Printable {
 

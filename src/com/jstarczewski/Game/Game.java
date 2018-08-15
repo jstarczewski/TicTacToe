@@ -4,14 +4,12 @@ import com.jstarczewski.Players.Computer;
 import com.jstarczewski.Players.Participant;
 import com.jstarczewski.Players.Player;
 
-import java.util.Scanner;
 
 public class Game {
 
     private Participant participantOne;
     private Participant participantTwo;
     private Board board;
-    private int moveIndex = 1;
 
     public Game(Games games, FiguresOrder figuresOrder, MoveOrder moveOrder) {
         this.board = new Board();
@@ -67,33 +65,34 @@ public class Game {
 
     }
 
-    public boolean makeMove(int width, int height) {
-        if (board.getMoveMadeTime()>=4 && board.isWon()) {
+    public boolean isWon() {
+        if (board.getMoveMadeTime() >= 4 && board.isWon()) {
             System.out.println("Somebody won");
             return true;
         }
+        return false;
+    }
+
+    public boolean makeMove(int width, int height) {
         if (participantOne.getMoveIndex() / 2 == 1) {
-            System.out.println("Making move bu");
             switchMoveIndexes();
-            System.out.println(participantOne.getFiguresName());
             return board.makeMove(participantOne, width, height);
-        }
-        else {
+        } else {
             switchMoveIndexes();
-            System.out.println("Making move");
             return board.makeMove(participantTwo, width, height);
         }
     }
+
     private void switchMoveIndexes() {
-        if (participantOne.getMoveIndex()/2==1) {
+        if (participantOne.getMoveIndex() / 2 == 1) {
             participantOne.setMoveIndex(1);
             participantTwo.setMoveIndex(2);
-        }
-        else {
+        } else {
             participantOne.setMoveIndex(2);
             participantTwo.setMoveIndex(1);
         }
     }
+
     public void printBoard() {
         board.printBoard();
     }
