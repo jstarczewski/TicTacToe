@@ -2,12 +2,14 @@ package com.jstarczewski.Game;
 
 public interface Printable {
 
-    String printCurrentMoveData();
+    void printCurrentMoveData();
 
-    String printGameData();
+    void printGameData();
 
     void printBoard();
 
-    String printGameMoves();
+    void printGameMoves();
+
+    void printHelp();
 
 }

@@ -23,14 +23,14 @@ public class Stack<Item> implements Iterable<Item> {
     public Item pop() {
         Item item = items[--length];
         items[length] = null;
-        if (length > 0 && length == items.length / 4)
+        if (length > 0 && length == (items.length / 4))
             resize(items.length / 2);
         return item;
     }
 
     private void resize(int max) {
         Item[] temps = (Item[]) new Object[max];
-        for (int i = 0; i < items.length; i++)
+        for (int i = 0; i < length; i++)
             temps[i] = items[i];
         items = temps;
     }
@@ -68,6 +68,10 @@ public class Stack<Item> implements Iterable<Item> {
             base += " " + items[i].toString();
         }
         return base;
+    }
+
+    public boolean isEmpty() {
+        return length==0;
     }
 
 }

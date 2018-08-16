@@ -1,6 +1,7 @@
 package com.jstarczewski.Game;
 
 import com.jstarczewski.Players.Participant;
+import com.jstarczewski.Players.Player;
 
 public class Board implements Printable {
 
@@ -8,6 +9,7 @@ public class Board implements Printable {
 
     private int moveMadeTime;
     private Stack<Configuration> stack;
+    private boolean isWon = false;
 
     public Board() {
         this.stack = new Stack<Configuration>();
@@ -31,28 +33,14 @@ public class Board implements Printable {
 
     public boolean isWon() {
         Configuration configuration = stack.pop();
-        if (Result.isWon(configuration))
+        if (Result.isWon(configuration)) {
+            stack.push(configuration);
+            isWon = true;
             return true;
-        else {
+        } else {
             stack.push(configuration);
             return false;
         }
-    }
-
-
-    @Override
-    public String printCurrentMoveData() {
-        return null;
-    }
-
-    @Override
-    public String printGameData() {
-        return null;
-    }
-
-    @Override
-    public String printGameMoves() {
-        return stack.toString();
     }
 
     public int getMoveMadeTime() {
@@ -64,7 +52,31 @@ public class Board implements Printable {
     }
 
     @Override
+    public void printCurrentMoveData() {
+
+    }
+
+    @Override
+    public void printGameData() {
+
+    }
+
+    @Override
     public void printBoard() {
         System.out.println(configuration.toString());
+    }
+
+    @Override
+    public void printGameMoves() {
+        if (isWon) {
+            while (!stack.isEmpty()) {
+                System.out.println(stack.pop().toString());
+            }
+        }
+    }
+
+    @Override
+    public void printHelp() {
+
     }
 }
