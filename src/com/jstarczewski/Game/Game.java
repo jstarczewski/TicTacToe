@@ -73,8 +73,8 @@ public class Game implements Printable {
 
         if (isGameParticipantsSet && isFiguresOrderSet && isMoveOrderSet) {
             int i = 0;
-            while (i <= 10 && !isWon()) {
-                boolean isInputCorrect = true;
+            boolean isInputCorrect = true;
+            while (i <= 10 && !isWon() && isInputCorrect) {
                 int width = 0;
                 int height = 0;
                     try {
