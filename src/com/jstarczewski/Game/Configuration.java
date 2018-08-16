@@ -54,13 +54,13 @@ public class Configuration {
 
     @Override
     public String toString() {
-        String base = "";
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                base += configuration[i][j].getName();
+                stringBuilder.append(configuration[i][j].getName());
             }
-            base += '\n';
+            stringBuilder.append('\n');
         }
-        return base;
+        return stringBuilder.toString();
     }
 }
