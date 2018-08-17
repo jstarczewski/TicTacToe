@@ -1,16 +1,32 @@
 package com.jstarczewski.Players;
 
 import com.jstarczewski.Figures.Figure;
+import com.jstarczewski.Figures.Figures;
 
 public class Computer extends Participant {
+
+    private Figures figure;
+    private boolean isFigureSet = false;
+
+
     @Override
     public boolean setTacAsFigure() {
-        return super.setTacAsFigure();
+        if (!isFigureSet) {
+            figure = Figures.TAC;
+            isFigureSet = true;
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean setTicAsFigure() {
-        return super.setTicAsFigure();
+        if (!isFigureSet) {
+            figure = Figures.TIC;
+            isFigureSet = true;
+            return true;
+        }
+        return false;
     }
 
     @Override

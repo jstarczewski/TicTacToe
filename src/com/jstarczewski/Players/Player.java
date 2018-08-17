@@ -35,7 +35,6 @@ public class Player extends Participant {
     @Override
     public Figure createFigure(int width, int height, int moveMadeTime) {
         // how to handle null ???
-        System.out.println("Creating figure");
         if (isFigureSet) {
             if (figure.equals(Figures.TAC))
                 return new Tac(width, height, moveMadeTime, this);
