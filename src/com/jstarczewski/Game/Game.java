@@ -1,5 +1,6 @@
 package com.jstarczewski.Game;
 
+import com.jstarczewski.Game.Computer.WriteGame;
 import com.jstarczewski.Game.GamesSettings.Axis;
 import com.jstarczewski.Game.GamesSettings.FiguresOrder;
 import com.jstarczewski.Game.GamesSettings.Games;
@@ -103,6 +104,9 @@ public class Game implements Printable {
 
             }
             printGameMoves();
+            if (WriteGame.toTXT(board.getStack())) {
+                System.out.println("Game written");
+            }
         }
 
     }

@@ -42,6 +42,10 @@ public class Tic extends Figure {
 
     }
 
+    private String getEnumName() {
+        return Figures.TIC.toString();
+    }
+
     @Override
     public boolean isDefaultFigure() {
         return false;
@@ -53,6 +57,6 @@ public class Tic extends Figure {
 
     @Override
     public String toString() {
-        return "X";
+        return getMoveMadeTime() + "@" + getWidth() + "@" + getHeight() + "@" + getEnumName();
     }
 }

@@ -1,0 +1,4 @@
+
+// After game store all moves made by winner and loser in txt file and move
+made time
+// When games begins find appropriate cordination or swap existing

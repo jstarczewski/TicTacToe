@@ -44,14 +44,18 @@ public class Tac extends Figure {
         return "|  O  |";
     }
 
+    private String getEnumName() {
+        return Figures.TAC.toString();
+    }
+
     @Override
     public boolean equals(Object obj) {
-       return (obj instanceof Figure && ((Figure) obj).getName().equals(getName()));
+        return (obj instanceof Figure && ((Figure) obj).getName().equals(getName()));
 
     }
 
     @Override
     public String toString() {
-        return "O";
+        return getMoveMadeTime() + "@" + getWidth() + "@" + getHeight() + "@" + getEnumName();
     }
 }

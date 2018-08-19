@@ -33,6 +33,11 @@ public class Figure {
     }
 
     @Override
+    public String toString() {
+        return getMoveMadeTime()+"@"+getWidth()+"@"+getHeight()+"@"+"DEFAULT";
+    }
+
+    @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
