@@ -2,10 +2,7 @@ package com.jstarczewski.Game.Computer;
 
 import com.jstarczewski.Game.Configuration;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ConfigurationsScanner {
@@ -14,13 +11,13 @@ public class ConfigurationsScanner {
 
     private ArrayList<String> configurations;
 
-    ConfigurationsScanner() {
-        scanGamesToMatchCurrentPattern();
+    public ConfigurationsScanner() {
+        this.configurations = scanGamesToMatchCurrentPattern();
     }
 
     private ArrayList<String> scanGamesToMatchCurrentPattern() {
         configurations = new ArrayList<>();
-        File file = new File("Game/games.txt");
+        File file = new File("Games/game.txt");
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);

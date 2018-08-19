@@ -7,8 +7,8 @@ public class Figure {
     private int moveMadeTime;
 
     public Figure(int width, int height, int moveMadeTime) {
-            this.width = width;
-            this.height = height;
+        this.width = width;
+        this.height = height;
         this.moveMadeTime = moveMadeTime;
     }
 
@@ -32,9 +32,13 @@ public class Figure {
         return true;
     }
 
+    public String getEnumName() {
+        return null;
+    }
+
     @Override
     public String toString() {
-        return getMoveMadeTime()+"@"+getWidth()+"@"+getHeight()+"@"+"DEFAULT";
+        return getMoveMadeTime() + "@" + getWidth() + "@" + getHeight() + "@" + "DEFAULT";
     }
 
     @Override

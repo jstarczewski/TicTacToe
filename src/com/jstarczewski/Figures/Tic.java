@@ -1,13 +1,14 @@
 package com.jstarczewski.Figures;
 
+import com.jstarczewski.Players.Participant;
 import com.jstarczewski.Players.Player;
 
 public class Tic extends Figure {
 
 
-    private Player player;
+    private Participant player;
 
-    public Tic(int width, int height, int moveMadeTime, Player player) {
+    public Tic(int width, int height, int moveMadeTime, Participant player) {
         super(width, height, moveMadeTime);
         this.player = player;
     }
@@ -27,7 +28,7 @@ public class Tic extends Figure {
         return super.getHeight();
     }
 
-    public Player getPlayer() {
+    public Participant getPlayer() {
         return player;
     }
 
@@ -42,7 +43,8 @@ public class Tic extends Figure {
 
     }
 
-    private String getEnumName() {
+    @Override
+    public String getEnumName() {
         return Figures.TIC.toString();
     }
 

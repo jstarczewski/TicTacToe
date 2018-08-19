@@ -1,5 +1,8 @@
 package com.jstarczewski.Game;
 
+import com.jstarczewski.Figures.Figures;
+import com.jstarczewski.Game.Computer.Analyzer;
+import com.jstarczewski.Game.Computer.ConfigurationsScanner;
 import com.jstarczewski.Game.Computer.WriteGame;
 import com.jstarczewski.Game.GamesSettings.Axis;
 import com.jstarczewski.Game.GamesSettings.FiguresOrder;
@@ -72,6 +75,9 @@ public class Game implements Printable {
 
     public void runGame() {
 
+        Analyzer analyzer = new Analyzer(new ConfigurationsScanner());
+        analyzer.setNeededFigure(Figures.TIC.toString());
+
         if (isGameParticipantsSet && isFiguresOrderSet && isMoveOrderSet) {
             int i = 0;
             boolean isInputCorrect = true;
@@ -99,6 +105,12 @@ public class Game implements Printable {
                                 i++;
                                 printBoard();
                             }
+                        }
+                        if (!games.equals(Games.PLAYER_PLAYER) && !isWon()) {
+                            System.out.println("Making move");
+                            makeMove(analyzer.analyze(board));
+                            i++;
+                            printBoard();
                         }
                     }
 
