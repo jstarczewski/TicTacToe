@@ -6,7 +6,6 @@ public class Stack<Item> implements Iterable<Item> {
 
     private Item[] items = (Item[]) new Object[1];
     private int length = 0;
-    private boolean isEmpty;
 
     public Item popWithoutPoping() {
         if (items[length]!=null)
@@ -21,11 +20,11 @@ public class Stack<Item> implements Iterable<Item> {
     }
 
     public Item pop() {
-        Item item = items[--length];
-        items[length] = null;
-        if (length > 0 && length == (items.length / 4))
-            resize(items.length / 2);
-        return item;
+            Item item = items[--length];
+            items[length] = null;
+            if (length > 0 && length == (items.length / 4))
+                resize(items.length / 2);
+            return item;
     }
 
     private void resize(int max) {
@@ -38,21 +37,21 @@ public class Stack<Item> implements Iterable<Item> {
 
     @Override
     public Iterator<Item> iterator() {
-        return new ReverseStackIterator();
+        return new StackIterator();
     }
 
-    private class ReverseStackIterator implements Iterator<Item> {
+    private class StackIterator implements Iterator<Item> {
 
-        private int i = length;
+        private int i = 0;
 
         @Override
         public boolean hasNext() {
-            return i > 0;
+            return i < length;
         }
 
         @Override
         public Item next() {
-            return items[--i];
+            return items[i++];
         }
 
         @Override
@@ -71,7 +70,7 @@ public class Stack<Item> implements Iterable<Item> {
     }
 
     public boolean isEmpty() {
-        return length==0;
+        return items.length<=0;
     }
 
 }

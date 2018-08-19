@@ -103,7 +103,6 @@ public class Game implements Printable {
                     }
 
             }
-            printGameMoves();
             if (WriteGame.toTXT(board.getStack())) {
                 System.out.println("Game written");
             }

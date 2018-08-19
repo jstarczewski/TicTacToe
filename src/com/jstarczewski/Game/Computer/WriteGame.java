@@ -10,20 +10,19 @@ public class WriteGame {
     public static boolean toTXT(Stack<Configuration> stack) {
         try {
             if (!stack.isEmpty()) {
-                FileWriter fileWriter = new FileWriter("Games/game.txt");
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                bufferedWriter.write("HWDP");
+                File file = new File("Games/game.txt");
+                PrintWriter printWriter = new PrintWriter(file);
                 for (Configuration configuration : stack) {
                     for (int i = 0; i < 3; i++) {
                         for (int j = 0; j < 3; j++) {
-                            bufferedWriter.write(configuration.getConfiguration()[i][j].toString());
+                            printWriter.println(configuration.getConfiguration()[i][j].toString());
                         }
                     }
+                    printWriter.println(" ");
                 }
-                fileWriter.close();
-                bufferedWriter.close();
+                printWriter.close();
                 return true;
-            }
+           }
             return false;
         } catch (IOException e) {
             return false;
