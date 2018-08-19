@@ -75,7 +75,7 @@ public class Game implements Printable {
         if (isGameParticipantsSet && isFiguresOrderSet && isMoveOrderSet) {
             int i = 0;
             boolean isInputCorrect = true;
-            while (i <= 10 && !isWon()) {
+            while (i < 10 && !isWon()) {
                 int width = 0;
                 int height = 0;
                     try {
@@ -118,7 +118,7 @@ public class Game implements Printable {
     }
 
     private int[] convertWidthAndHeight(int width, int height) {
-        return new int[]{Math.abs(width - 2), height};
+        return new int[]{height ,Math.abs(width - 2)};
     }
 
     private boolean isWon() {

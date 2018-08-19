@@ -18,7 +18,7 @@ public final class Result {
             if (i != 2 && i != 1 && (figuresConfiguration[0][i].equals(figuresConfiguration[1][i]) && figuresConfiguration[1][i].equals(figuresConfiguration[2][i]))) {
                 return true;
             }
-            if (i != 2 && i != 1 && (figuresConfiguration[i][0].equals(figuresConfiguration[i][1]) && figuresConfiguration[i][1].equals(figuresConfiguration[i][2]))) {
+            if ((figuresConfiguration[i][0].equals(figuresConfiguration[i][1]) && figuresConfiguration[i][1].equals(figuresConfiguration[i][2]))) {
                 return true;
             }
         }
