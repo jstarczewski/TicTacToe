@@ -15,7 +15,7 @@ public class Main {
         game.setGameParticipants(Games.PLAYER_PLAYER);
         game.setFiguresOrder(FiguresOrder.TAC_TIC);
         game.setMoveOrder(MoveOrder.FIRST_SECOND);
-        game.setGameAxis(Axis.POSITIVE_X_AND_POSITIVE_Y);
+        game.setGameAxis(Axis.POSITIVE_X_AND_NEGATIVE_Y);
         game.printGameData();
         game.runGame();
 

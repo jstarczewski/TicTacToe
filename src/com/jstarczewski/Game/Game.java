@@ -118,7 +118,7 @@ public class Game implements Printable {
     }
 
     private int[] convertWidthAndHeight(int width, int height) {
-        return new int[]{height ,Math.abs(width - 2)};
+        return new int[]{Math.abs(width-2), height};
     }
 
     private boolean isWon() {
