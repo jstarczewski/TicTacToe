@@ -3,7 +3,7 @@ package com.jstarczewski.Game;
 import com.jstarczewski.Figures.Figures;
 import com.jstarczewski.Game.Computer.Analyzer;
 import com.jstarczewski.Game.Computer.ConfigurationsScanner;
-import com.jstarczewski.Game.Computer.WriteGame;
+import com.jstarczewski.Game.Computer.GameWriter;
 import com.jstarczewski.Game.GamesSettings.Axis;
 import com.jstarczewski.Game.GamesSettings.FiguresOrder;
 import com.jstarczewski.Game.GamesSettings.Games;
@@ -115,7 +115,7 @@ public class Game implements Printable {
                     }
 
             }
-            if (WriteGame.toTXT(board.getStack())) {
+            if (games.equals(Games.PLAYER_PLAYER) && GameWriter.toTXT(board.getStack())) {
                 System.out.println("Game written");
             }
         }

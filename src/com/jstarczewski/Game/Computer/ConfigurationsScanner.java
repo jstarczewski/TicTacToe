@@ -8,36 +8,42 @@ import java.util.ArrayList;
 public class ConfigurationsScanner {
 
     private Configuration configurationPattern;
-
-    private ArrayList<String> configurations;
+    private ArrayList<ArrayList<String>> rawConfigurations;
 
     public ConfigurationsScanner() {
-        this.configurations = scanGamesToMatchCurrentPattern();
+        this.rawConfigurations = scanGamesToMatchCurrentPattern();
     }
 
-    private ArrayList<String> scanGamesToMatchCurrentPattern() {
-        configurations = new ArrayList<>();
+    private ArrayList<ArrayList<String>> scanGamesToMatchCurrentPattern() {
+        rawConfigurations = new ArrayList<>();
+        ArrayList<String> configuration = new ArrayList<>();
         File file = new File("Games/game.txt");
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String rawFishCard;
-            while ((rawFishCard = bufferedReader.readLine()) != null) {
-                configurations.add(rawFishCard);
+            String rawConfigurationLine;
+            while ((rawConfigurationLine = bufferedReader.readLine()) != null) {
+                if (rawConfigurationLine.equals("---")) {
+                    rawConfigurations.add(configuration);
+                    configuration = new ArrayList<>();
+                }
+                else {
+                    configuration.add(rawConfigurationLine);
+                }
             }
         } catch (IOException e) {
             System.err.println("Unable to read File");
-            return configurations;
+            return rawConfigurations;
         }
-        return configurations;
+        return rawConfigurations;
     }
 
-    public ArrayList<String> getConfigurations() {
-        return configurations;
+
+    public ArrayList<ArrayList<String>> getRawConfigurations() {
+        return rawConfigurations;
     }
 
-    public void setConfigurations(ArrayList<String> configurations) {
-        this.configurations = configurations;
+    public void setRawConfigurations(ArrayList<ArrayList<String>> rawConfigurations) {
+        this.rawConfigurations = rawConfigurations;
     }
-
 }

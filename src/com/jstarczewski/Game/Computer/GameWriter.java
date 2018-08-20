@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class WriteGame {
+public class GameWriter {
 
     public static boolean toTXT(Stack<Configuration> stack) {
         try {
@@ -24,7 +24,7 @@ public class WriteGame {
                 Collections.sort(configurations);
                 for (String string : configurations)
                     printWriter.println(string);
-                printWriter.println(" ");
+                printWriter.println("---");
                 printWriter.close();
                 return true;
             }
