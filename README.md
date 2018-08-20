@@ -14,5 +14,5 @@ TicTacToe game implementation is kinda big to show my understanding of OOP conce
 8. Basic JUnit 4 usage to provide units (methods) tests for the most of written code.
 9. Understanding of handling Exceptions (IO, Arrays etc.)
 ## Future of the project
-Right now the game is "playable" in PLAYER vs PLAYER mode. I was planning to implement PLAYER vs COMPUTER (Strict algorithm and Machine learning to analyze other players moves) mode, but because of lack of time I will polish up the current code, write some test and will not commit changes often in future. 
+Right now the game is "playable" in PLAYER vs PLAYER mode. I was planning to implement PLAYER vs COMPUTER mode (so called Machine Learning to memorize and analyze other players moves), but because of lack of time I will polish up the current code, write some test and will not commit changes often in future. 
 
