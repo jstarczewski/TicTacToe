@@ -1,9 +1,6 @@
 package com.jstarczewski.Game.Computer;
 
-import com.jstarczewski.Figures.Figure;
 import com.jstarczewski.Figures.Figures;
-import com.jstarczewski.Figures.Tac;
-import com.jstarczewski.Figures.Tic;
 import com.jstarczewski.Game.Board;
 import com.jstarczewski.Game.Configuration;
 import com.jstarczewski.Players.Computer;

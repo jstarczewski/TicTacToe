@@ -4,6 +4,7 @@ import com.jstarczewski.Figures.Figures;
 import com.jstarczewski.Game.Computer.Analyzer;
 import com.jstarczewski.Game.Computer.ConfigurationsScanner;
 import com.jstarczewski.Game.Computer.GameWriter;
+import com.jstarczewski.Game.Computer.Mover;
 import com.jstarczewski.Game.GamesSettings.Axis;
 import com.jstarczewski.Game.GamesSettings.FiguresOrder;
 import com.jstarczewski.Game.GamesSettings.Games;
@@ -108,7 +109,7 @@ public class Game implements Printable {
                         }
                         if (!games.equals(Games.PLAYER_PLAYER) && !isWon()) {
                             System.out.println("Making move");
-                            makeMove(analyzer.analyze(board));
+                            makeMove(Mover.generateMove(board, participantOne.getFiguresName()));
                             i++;
                             printBoard();
                         }
