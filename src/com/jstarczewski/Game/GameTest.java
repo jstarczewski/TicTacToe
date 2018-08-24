@@ -50,7 +50,14 @@ public class GameTest {
     public void runGame() {
         game.setGameParticipants(Games.PLAYER_PLAYER);
         game.setFiguresOrder(FiguresOrder.TAC_TIC);
-        assertFalse(game.runGame() );
+        assertFalse(game.runGame());
+        game.setMoveOrder(MoveOrder.FIRST_SECOND);
+        game.setGameAxis(Axis.POSITIVE_X_AND_NEGATIVE_Y);
+        assertTrue(game.runGame(2,2));
+        assertFalse(game.runGame(3,3));
+        assertFalse(game.runGame(2,2));
+        assertTrue(game.runGame(1,2));
+
 
     }
 

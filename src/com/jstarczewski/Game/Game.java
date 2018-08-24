@@ -94,10 +94,40 @@ public class Game implements Printable {
      *
      * */
 
+
+    // overloaded method only for testing
+    public boolean runGame(int width, int height) {
+
+        if (isGameParticipantsSet && isFiguresOrderSet && isMoveOrderSet) {
+            int i = 0;
+            boolean isMoveMade = false;
+            while (i < 10 && !isWon()) {
+                if (isWidthAndHeightConverted) {
+                    isMoveMade = makeMove(convertWidthAndHeight(width, height));
+                    i++;
+                    printBoard();
+                } else {
+                    isMoveMade = makeMove(width, height);
+
+                }
+                if (isMoveMade) {
+                    i=10;
+                    printBoard();
+                }
+                else {
+                    return false;
+                }
+            }
+            return isMoveMade;
+        }
+        return false;
+    }
+
     public boolean runGame() {
 
         if (isGameParticipantsSet && isFiguresOrderSet && isMoveOrderSet) {
             int i = 0;
+            boolean isMoveMade = false;
             boolean isInputCorrect = true;
             while (i < 10 && !isWon()) {
                 int width = 0;
@@ -112,23 +142,24 @@ public class Game implements Printable {
                 }
                 if (isInputCorrect) {
                     if (isWidthAndHeightConverted) {
-                        int[] widthAndHeight = convertWidthAndHeight(width, height);
-                        if (makeMove(widthAndHeight)) {
-                            i++;
-                            printBoard();
-                        }
+                        isMoveMade = makeMove(convertWidthAndHeight(width, height));
+                        i++;
+                        printBoard();
                     } else {
-                        if (makeMove(width, height)) {
-                            i++;
-                            printBoard();
-                        }
+                        isMoveMade = makeMove(width, height);
+
+                    }
+                    if (isMoveMade) {
+                        i++;
+                        printBoard();
                     }
                 }
+
             }
+            return isMoveMade;
         }
         return false;
     }
-
 
     private int[] convertWidthAndHeight(int width, int height) {
         return new int[]{width, Math.abs(height - 2)};
