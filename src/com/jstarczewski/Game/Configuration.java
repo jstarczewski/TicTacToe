@@ -21,7 +21,7 @@ public class Configuration {
     public boolean fill(Figure figure) {
         try {
             if (isFilledWithDefaultFigure(figure.getWidth(), figure.getHeight())) {
-                configuration[figure.getWidth()][figure.getHeight()] = figure;
+                configuration[figure.getHeight()][figure.getWidth()] = figure;
                 return true;
             } else
                 return false;
@@ -31,7 +31,7 @@ public class Configuration {
     }
 
     private boolean isFilledWithDefaultFigure(int width, int height) {
-        return (configuration[width][height]).isDefaultFigure();
+        return (configuration[height][width]).isDefaultFigure();
     }
 
     public Configuration rewrite() {

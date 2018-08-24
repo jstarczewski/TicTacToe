@@ -7,6 +7,11 @@ import java.util.ArrayList;
 
 public class ConfigurationsScanner {
 
+    /*
+    * Part of vs Computer Algorithm, currently not working
+    *
+    */
+
     private Configuration configurationPattern;
     private ArrayList<ArrayList<String>> rawConfigurations;
 

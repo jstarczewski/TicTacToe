@@ -1,21 +1,21 @@
 package com.jstarczewski.Game.Computer;
 
 import com.jstarczewski.Figures.Figure;
-import com.jstarczewski.Figures.Figures;
 import com.jstarczewski.Game.Board;
 import com.jstarczewski.Game.Configuration;
 
 public class Mover {
+
+    /*
+    * Part of vs Computer Algorithm, currently not working
+    *
+    */
 
     public static int[] generateMove(Board board, String figuresName) {
         Configuration configuration = board.getStack().pop();
         board.getStack().push(configuration);
         for (int i = 0; i<3; i++) {
             for (int j = 0; j<3; j++) {
-
-        //        if ()
-
-
 
             }
         }

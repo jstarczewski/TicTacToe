@@ -3,8 +3,6 @@ package com.jstarczewski.Game;
 import com.jstarczewski.Figures.Figures;
 import com.jstarczewski.Game.Computer.Analyzer;
 import com.jstarczewski.Game.Computer.ConfigurationsScanner;
-import com.jstarczewski.Game.Computer.GameWriter;
-import com.jstarczewski.Game.Computer.Mover;
 import com.jstarczewski.Game.GamesSettings.Axis;
 import com.jstarczewski.Game.GamesSettings.FiguresOrder;
 import com.jstarczewski.Game.GamesSettings.Games;
@@ -18,6 +16,16 @@ import java.util.Scanner;
 
 
 public class Game implements Printable {
+
+    /*
+    * File structure ->
+    *   constructors
+    *   game settings
+    *   other methods
+    *   printable interface methods
+    *
+    * */
+
 
     private Participant participantOne;
     private Participant participantTwo;
@@ -73,6 +81,12 @@ public class Game implements Printable {
         isMoveOrderSet = true;
     }
 
+    public void setGameAxis(Axis axis) {
+        this.axis = axis;
+        if (!axis.equals(Axis.POSITIVE_X_AND_NEGATIVE_Y)) {
+            isWidthAndHeightConverted = true;
+        }
+    }
 
     public void runGame() {
 
@@ -85,53 +99,36 @@ public class Game implements Printable {
             while (i < 10 && !isWon()) {
                 int width = 0;
                 int height = 0;
-                    try {
-                        System.out.println("Insert width");
-                        width = scanner.nextInt();
-                        System.out.println("Insert height");
-                        height = scanner.nextInt();
-                    }
-                    catch (InputMismatchException e) {
-                        isInputCorrect = false;
-                    }
-                    if (isInputCorrect) {
-                        if (isWidthAndHeightConverted) {
-                            int[] widthAndHeight = convertWidthAndHeight(width, height);
-                            if (makeMove(widthAndHeight)) {
-                                i++;
-                                printBoard();
-                            }
-                        } else {
-                            if (makeMove(width, height)) {
-                                i++;
-                                printBoard();
-                            }
+                try {
+                    System.out.println("Insert width");
+                    width = scanner.nextInt();
+                    System.out.println("Insert height");
+                    height = scanner.nextInt();
+                } catch (InputMismatchException e) {
+                    isInputCorrect = false;
+                }
+                if (isInputCorrect) {
+                    if (isWidthAndHeightConverted) {
+                        int[] widthAndHeight = convertWidthAndHeight(width, height);
+                        if (makeMove(widthAndHeight)) {
+                            i++;
+                            printBoard();
                         }
-                        if (!games.equals(Games.PLAYER_PLAYER) && !isWon()) {
-                            System.out.println("Making move");
-                            makeMove(Mover.generateMove(board, participantOne.getFiguresName()));
+                    } else {
+                        if (makeMove(width, height)) {
                             i++;
                             printBoard();
                         }
                     }
-
-            }
-            if (games.equals(Games.PLAYER_PLAYER) && GameWriter.toTXT(board.getStack())) {
-                System.out.println("Game written");
+                }
             }
         }
 
     }
 
-    public void setGameAxis(Axis axis) {
-        this.axis = axis;
-        if (!axis.equals(Axis.POSITIVE_X_AND_NEGATIVE_Y)) {
-            isWidthAndHeightConverted = true;
-        }
-    }
 
     private int[] convertWidthAndHeight(int width, int height) {
-        return new int[]{Math.abs(width-2), height};
+        return new int[]{width, Math.abs(height-2)};
     }
 
     private boolean isWon() {

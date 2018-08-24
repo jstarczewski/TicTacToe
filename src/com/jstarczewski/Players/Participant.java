@@ -1,33 +1,17 @@
 package com.jstarczewski.Players;
 
 import com.jstarczewski.Figures.Figure;
-import com.jstarczewski.Figures.Figures;
 
 public abstract class Participant {
 
     private int moveIndex;
-    private Figures figures;
-    private Figures figure;
-    boolean isFigureSet = false;
-
-
 
     public boolean setTacAsFigure() {
-        if (!isFigureSet) {
-            figure = Figures.TAC;
-            isFigureSet = true;
-            return true;
-        }
         return false;
     }
 
     public boolean setTicAsFigure() {
-        if (!isFigureSet) {
-            figure = Figures.TIC;
-            isFigureSet = true;
-            return true;
-        }
-        return false;
+       return false;
     }
 
 
@@ -44,6 +28,6 @@ public abstract class Participant {
     }
 
     public String getFiguresName() {
-        return figures.toString();
+        return "default";
     }
 }

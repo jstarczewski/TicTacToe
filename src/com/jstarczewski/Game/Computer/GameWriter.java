@@ -10,6 +10,11 @@ import java.util.Collections;
 
 public class GameWriter {
 
+    /*
+    * Part of vs Computer Algorithm, currently not working
+    *
+    */
+
     public static boolean toTXT(Stack<Configuration> stack) {
         try {
             if (!stack.isEmpty()) {
