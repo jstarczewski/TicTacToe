@@ -18,13 +18,13 @@ import java.util.Scanner;
 public class Game implements Printable {
 
     /*
-    * File structure ->
-    *   constructors
-    *   game settings
-    *   other methods
-    *   printable interface methods
-    *
-    * */
+     * File structure ->
+     *   constructors
+     *   game settings
+     *   other methods
+     *   printable interface methods
+     *
+     * */
 
 
     private Participant participantOne;
@@ -33,6 +33,7 @@ public class Game implements Printable {
     private Scanner scanner;
     private boolean isGameParticipantsSet = false;
     private boolean isFiguresOrderSet = false;
+
     private boolean isMoveOrderSet = false;
     private boolean isWidthAndHeightConverted = false;
     private Games games;
@@ -88,10 +89,12 @@ public class Game implements Printable {
         }
     }
 
-    public void runGame() {
+    /*
+     * runGame() will be covered to void but was changed to boolean to make testing easier
+     *
+     * */
 
-        Analyzer analyzer = new Analyzer(new ConfigurationsScanner());
-        analyzer.setNeededFigure(Figures.TIC.toString());
+    public boolean runGame() {
 
         if (isGameParticipantsSet && isFiguresOrderSet && isMoveOrderSet) {
             int i = 0;
@@ -123,12 +126,12 @@ public class Game implements Printable {
                 }
             }
         }
-
+        return false;
     }
 
 
     private int[] convertWidthAndHeight(int width, int height) {
-        return new int[]{width, Math.abs(height-2)};
+        return new int[]{width, Math.abs(height - 2)};
     }
 
     private boolean isWon() {
@@ -172,6 +175,22 @@ public class Game implements Printable {
             participantOne.setMoveIndex(2);
             participantTwo.setMoveIndex(1);
         }
+    }
+
+    public boolean isGameParticipantsSet() {
+        return isGameParticipantsSet;
+    }
+
+    public boolean isFiguresOrderSet() {
+        return isFiguresOrderSet;
+    }
+
+    public boolean isMoveOrderSet() {
+        return isMoveOrderSet;
+    }
+
+    public boolean isWidthAndHeightConverted() {
+        return isWidthAndHeightConverted;
     }
 
     @Override
