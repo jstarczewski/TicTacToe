@@ -8,13 +8,13 @@ import com.jstarczewski.Players.Computer;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class Analyzer {
 
     /*
     * Part of vs Computer Algorithm, currently not working
     *
     */
-
     private ArrayList<ArrayList<String>> rawConfigurations;
     private Configuration configurationPattern;
     private String neededFigureName;
